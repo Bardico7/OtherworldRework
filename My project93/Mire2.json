@@ -532,6 +532,16 @@
           "name": "My_Own_ID",
           "type": "string",
           "value": "0"
+        },
+        {
+          "name": "TargetX",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "TargetY",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -9052,6 +9062,26 @@
                 "=",
                 "player.OnlinePlayer::OnlineID()"
               ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TargetY",
+                "=",
+                "player.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TargetX",
+                "=",
+                "player.X()"
+              ]
             }
           ],
           "events": [
@@ -9075,6 +9105,16 @@
                     "player",
                     "OnlinePlayer",
                     "="
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "DistanceBetweenPositions(player.X(), player.Y(), Variable(TargetX), Variable(TargetY))",
+                    "<=",
+                    "50"
                   ]
                 }
               ],
@@ -9183,7 +9223,7 @@
                   "parameters": [
                     "Chat_Log",
                     "+",
-                    "NewLine() + \"You've been hit! \" + \"your HP has been reduced to: \" + ToString(player.Health::Health())"
+                    "NewLine() + \"You've been hit! Your current HP is: \" + ToString(player.Health::Health()) + NewLine()"
                   ]
                 }
               ]
@@ -9226,93 +9266,6 @@
               "parameters": [
                 "",
                 "0"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "OnlineMultiplayer::OnlinePlayer::ConnectionStatus"
-              },
-              "parameters": [
-                "player",
-                "OnlinePlayer",
-                "\"Connected\"",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "Chat_Log",
-                "+",
-                "NewLine() + \"Your ID is: \" + player.OnlinePlayer::OnlineID()"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "Chat_Log",
-                "+",
-                "NewLine() + \"Welcome to Otherworld MMORPG!\""
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "OnlineMultiplayer::OnlinePlayer::ConnectionStatus"
-              },
-              "parameters": [
-                "player",
-                "OnlinePlayer",
-                "\"Connected\"",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "AjoutObjConcern"
-              },
-              "parameters": [
-                "",
-                "player"
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "Chat_Log",
-                "+",
-                "NewLine() + \"a user joined the game\""
               ]
             }
           ]
