@@ -485,6 +485,16 @@
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": false
+      },
+      {
+        "file": "Safe Beginnings.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Safe Beginnings.mp3",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
       }
     ]
   },
@@ -517,7 +527,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 2.4323477282330073,
+        "zoomFactor": 0.43357743047027086,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -11371,6 +11381,12 @@
               "parameters": [
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
             }
           ],
           "actions": [
@@ -11390,6 +11406,14 @@
               "parameters": [
                 "player",
                 "\"cooldown\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "1"
               ]
             }
           ]
