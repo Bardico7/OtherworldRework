@@ -10786,7 +10786,6 @@
       },
       "events": [
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -11497,7 +11496,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "WeaponSync",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -12090,6 +12088,16 @@
                     },
                     {
                       "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "StrFind(player.OnlinePlayer::SharedString(), \"|INV|\")",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "BuiltinCommonInstructions::Once"
                       },
                       "parameters": []
@@ -12219,6 +12227,16 @@
                       },
                       "parameters": [
                         "StrFind(player.OnlinePlayer::SharedString(), \"|DMG|\")",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "StrFind(player.OnlinePlayer::SharedString(), \"|INV|\")",
                         "=",
                         "-1"
                       ]
@@ -12426,15 +12444,19 @@
                 "player",
                 ""
               ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "NewSprite",
+                "=",
+                "player.Y() + 1"
+              ]
+            },
             {
               "type": {
                 "value": "FlippableCapability::FlippableBehavior::FlipX"
@@ -12453,16 +12475,6 @@
                 "NewSprite",
                 "=",
                 "-90"
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangePlan"
-              },
-              "parameters": [
-                "NewSprite",
-                "=",
-                "-99"
               ]
             }
           ]
@@ -12491,15 +12503,19 @@
                 "player",
                 ""
               ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "NewSprite",
+                "=",
+                "player.Y() -1"
+              ]
+            },
             {
               "type": {
                 "value": "SetAngle"
@@ -12508,16 +12524,6 @@
                 "NewSprite",
                 "=",
                 "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangePlan"
-              },
-              "parameters": [
-                "NewSprite",
-                "=",
-                "-101"
               ]
             }
           ]
@@ -12546,15 +12552,19 @@
                 "player",
                 ""
               ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "NewSprite",
+                "=",
+                "player.Y() + 1"
+              ]
+            },
             {
               "type": {
                 "value": "SetAngle"
@@ -12563,16 +12573,6 @@
                 "NewSprite",
                 "=",
                 "-30"
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangePlan"
-              },
-              "parameters": [
-                "NewSprite",
-                "=",
-                "-99"
               ]
             },
             {
@@ -12611,15 +12611,19 @@
                 "player",
                 ""
               ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "NewSprite",
+                "=",
+                "player.Y() + 1"
+              ]
+            },
             {
               "type": {
                 "value": "SetAngle"
@@ -12628,16 +12632,6 @@
                 "NewSprite",
                 "=",
                 "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangePlan"
-              },
-              "parameters": [
-                "NewSprite",
-                "=",
-                "-99"
               ]
             }
           ]
@@ -12676,15 +12670,19 @@
                 "player",
                 ""
               ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "NewSprite",
+                "=",
+                "player.Y() + 1"
+              ]
+            },
             {
               "type": {
                 "value": "FlippableCapability::FlippableBehavior::FlipX"
@@ -12703,16 +12701,6 @@
                 "NewSprite",
                 "=",
                 "90"
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangePlan"
-              },
-              "parameters": [
-                "NewSprite",
-                "=",
-                "-99"
               ]
             }
           ]
@@ -13518,7 +13506,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Syncing Animals",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -14225,26 +14212,6 @@
                     "animals",
                     ""
                   ]
-                },
-                {
-                  "type": {
-                    "value": "SetStringVariable"
-                  },
-                  "parameters": [
-                    "Chat_Log",
-                    "+",
-                    "NewLine()+\"AMIDead is set to: \" + animals.AmIDead"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetStringVariable"
-                  },
-                  "parameters": [
-                    "Chat_Log",
-                    "+",
-                    "NewLine()+\"an animal has respawned\""
-                  ]
                 }
               ]
             },
@@ -14295,26 +14262,6 @@
                         "AmIDead",
                         "True",
                         ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetStringVariable"
-                      },
-                      "parameters": [
-                        "Chat_Log",
-                        "+",
-                        "NewLine()+\"an animal with the id of \"+SSV[2] +\" has died.\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetStringVariable"
-                      },
-                      "parameters": [
-                        "Chat_Log",
-                        "+",
-                        "NewLine()+\"AMIDead is set to: \" + animals.AmIDead"
                       ]
                     },
                     {
@@ -14521,16 +14468,6 @@
                         "=",
                         "\"StarterSword\""
                       ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetStringVariable"
-                      },
-                      "parameters": [
-                        "Chat_Log",
-                        "+",
-                        "NewLine()+ \"This is what was Sub Stringed:\" + SubStr(player.OnlinePlayer::SharedString(), 8, 100)+NewLine()+\"My ID: \"+player.PlayersSyncedID+NewLine()"
-                      ]
                     }
                   ]
                 }
@@ -14557,18 +14494,7 @@
                 {
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetStringVariable"
-                      },
-                      "parameters": [
-                        "Chat_Log",
-                        "+",
-                        "NewLine()+ \"This is what was Sub Stringed:\" + SubStr(player.OnlinePlayer::SharedString(), 8, 100)+NewLine()+\"This Player's ID: \"+player.PlayersSyncedID+NewLine()"
-                      ]
-                    }
-                  ]
+                  "actions": []
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -14633,18 +14559,7 @@
                       ]
                     }
                   ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetStringVariable"
-                      },
-                      "parameters": [
-                        "Chat_Log",
-                        "+",
-                        "NewLine()+\"That's Me Being Picked! My ID is: \"+My_Own_ID+NewLine() "
-                      ]
-                    }
-                  ]
+                  "actions": []
                 }
               ]
             },
@@ -14904,16 +14819,6 @@
                     "ItemsInColumn",
                     "+",
                     "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetStringVariable"
-                  },
-                  "parameters": [
-                    "Chat_Log",
-                    "+",
-                    "NewLine() + \"You gained an item \" + ToString(invitem.X()) + \";\" + ToString(invitem.Y())"
                   ]
                 }
               ],
