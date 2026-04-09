@@ -12943,16 +12943,6 @@
                     "100000",
                     ""
                   ]
-                },
-                {
-                  "type": {
-                    "value": "SetStringVariable"
-                  },
-                  "parameters": [
-                    "Chat_Log",
-                    "+",
-                    "NewLine() +\"animal position: \" + ToString(animals.X()) + \";\" + ToString(animals.Y())"
-                  ]
                 }
               ]
             }
@@ -13012,18 +13002,7 @@
                   "parameters": []
                 }
               ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetStringVariable"
-                  },
-                  "parameters": [
-                    "Chat_Log",
-                    "+",
-                    "NewLine() +\"animal position: \" + ToString(animals.X()) + \";\" + ToString(animals.Y())"
-                  ]
-                }
-              ]
+              "actions": []
             }
           ]
         }
