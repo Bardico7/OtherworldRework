@@ -772,7 +772,7 @@
       {
         "file": "assets/sword.png",
         "kind": "image",
-        "metadata": "{\"extension\":\".png\"}",
+        "metadata": "{\"extension\":\".png\",\"localFilePath\":\"assets/sword.png\"}",
         "name": "sword",
         "smoothed": false,
         "userAdded": false
@@ -845,7 +845,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.9296875000000896,
+        "zoomFactor": 1.2530387740591062,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -953,6 +953,11 @@
         },
         {
           "name": "posInvX",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "FollowPlayer",
           "type": "number",
           "value": 0
         }
@@ -7992,8 +7997,8 @@
           "name": "npc",
           "persistentUuid": "8e319e30-6833-4de7-a015-b5c8d5857758",
           "width": 0,
-          "x": 405,
-          "y": 421,
+          "x": 638,
+          "y": 535,
           "zOrder": 8000002,
           "numberProperties": [],
           "stringProperties": [],
@@ -8296,8 +8301,8 @@
           "name": "Identifier",
           "persistentUuid": "444845b8-03d5-4880-a12a-815d686e5921",
           "width": 0,
-          "x": 363,
-          "y": 420,
+          "x": 395,
+          "y": 451,
           "zOrder": 8000006,
           "numberProperties": [],
           "stringProperties": [],
@@ -8370,6 +8375,11 @@
               "name": "Gold",
               "type": "number",
               "value": 0
+            },
+            {
+              "name": "quest",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
@@ -8429,10 +8439,10 @@
               "Tween": "Tween"
             },
             {
+              "allowDiagonals": true,
               "name": "TopDownMovement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "acceleration": 150,
-              "allowDiagonals": true,
               "angleOffset": 0,
               "angularMaxSpeed": 150,
               "customIsometryAngle": 30,
@@ -10721,20 +10731,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 8,
-                            "y": 5
+                            "x": 7,
+                            "y": 4
                           },
                           {
-                            "x": 25,
-                            "y": 5
+                            "x": 24,
+                            "y": 4
                           },
                           {
-                            "x": 25,
-                            "y": 31
+                            "x": 24,
+                            "y": 30
                           },
                           {
-                            "x": 8,
-                            "y": 31
+                            "x": 7,
+                            "y": 30
                           }
                         ]
                       ]
@@ -10770,20 +10780,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 8,
-                            "y": 5
+                            "x": 7,
+                            "y": 4
                           },
                           {
-                            "x": 25,
-                            "y": 5
+                            "x": 24,
+                            "y": 4
                           },
                           {
-                            "x": 25,
-                            "y": 31
+                            "x": 24,
+                            "y": 30
                           },
                           {
-                            "x": 8,
-                            "y": 31
+                            "x": 7,
+                            "y": 30
                           }
                         ]
                       ]
@@ -11086,7 +11096,7 @@
                     "player",
                     "TopDownMovement",
                     "=",
-                    "0"
+                    "80"
                   ]
                 },
                 {
@@ -11097,7 +11107,7 @@
                     "player",
                     "TopDownMovement",
                     "=",
-                    "0"
+                    "80"
                   ]
                 }
               ]
@@ -11211,104 +11221,13 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "KeyFromTextPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "\"Right\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "KeyFromTextPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "\"d\""
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "FlippableCapability::FlippableBehavior::FlipX"
-                  },
-                  "parameters": [
-                    "player",
-                    "Flippable",
-                    "no"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "KeyFromTextPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "\"Left\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "KeyFromTextPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "\"a\""
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "FlippableCapability::FlippableBehavior::FlipX"
-                  },
-                  "parameters": [
-                    "player",
-                    "Flippable",
-                    "yes"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
                     "inverted": true,
                     "value": "IsOnScreen::InOnScreen::IsOnScreen"
                   },
                   "parameters": [
                     "player",
                     "InOnScreen",
-                    "-50",
+                    "-100",
                     ""
                   ]
                 }
@@ -11321,12 +11240,17 @@
                   "parameters": [
                     "",
                     "player",
-                    "no",
+                    "",
                     "",
                     ""
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -11508,6 +11432,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -11907,7 +11832,7 @@
                         "",
                         "npc_chat_overhead",
                         "npc.PointX(\"Chat\") - (npc_chat_overhead.Width() / 2) - 30",
-                        "npc2.Y() - 40",
+                        "npc2.Y() - 60",
                         ""
                       ]
                     },
@@ -11932,7 +11857,7 @@
                       },
                       "parameters": [
                         "",
-                        "npc2",
+                        "npc_chat_overhead",
                         "npc2",
                         ""
                       ]
@@ -11946,9 +11871,9 @@
                       "parameters": [
                         "npc_chat_overhead",
                         "=",
-                        "npc.PointX(\"Chat\") - (npc_chat_overhead.Width() / 2) - 30",
+                        "npc.PointX(\"Chat\") - (npc_chat_overhead.Width() / 2)",
                         "=",
-                        "npc2.Y() - 40"
+                        "npc2.Y() - 60"
                       ]
                     }
                   ]
@@ -11985,6 +11910,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "folded": true,
                       "name": "SpecialEvents",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -12101,7 +12027,7 @@
                             "npc_chat_overhead",
                             "Text",
                             "=",
-                            "\"hello traveler.\""
+                            "\"Oh Hello! I suppose you could help me\"+NewLine()+\" with my little.. problem.\""
                           ]
                         },
                         {
@@ -12109,6 +12035,35 @@
                             "value": "Wait"
                           },
                           "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"I'm looking for somebody to do.. a little task for me.\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
                             "1"
                           ]
                         },
@@ -12120,17 +12075,15 @@
                             "npc_chat_overhead",
                             "Text",
                             "=",
-                            "\"Do you want a quest?\""
+                            "\"I assume you're some sort of traveler?\"+NewLine()+\" If so, I can give you a small task that can jumpstart your journey eh?\""
                           ]
                         },
                         {
                           "type": {
-                            "value": "SetNumberVariable"
+                            "value": "Wait"
                           },
                           "parameters": [
-                            "convoprogress",
-                            "=",
-                            "1"
+                            "3"
                           ]
                         },
                         {
@@ -12158,23 +12111,53 @@
                         },
                         {
                           "type": {
-                            "value": "TextContainerCapability::TextContainerBehavior::Value"
-                          },
-                          "parameters": [
-                            "typemessage",
-                            "Text",
-                            "=",
-                            "\"yes\""
-                          ]
-                        },
-                        {
-                          "type": {
                             "value": "NumberVariable"
                           },
                           "parameters": [
                             "convoprogress",
                             "=",
                             "1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"yes\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"YES\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"Yes\""
+                              ]
+                            }
                           ]
                         },
                         {
@@ -12190,7 +12173,7 @@
                             "value": "Wait"
                           },
                           "parameters": [
-                            "1"
+                            "3"
                           ]
                         },
                         {
@@ -12201,7 +12184,7 @@
                             "npc_chat_overhead",
                             "Text",
                             "=",
-                            "\"yeah, I don't have one\""
+                            "\"You see, I'm having a bit of a problem.\""
                           ]
                         },
                         {
@@ -12209,6 +12192,264 @@
                             "value": "Wait"
                           },
                           "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"There are some squirrels up ahead on the path.\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"And I've got.. what some would say\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"an 'irrational' fear of squirrels...\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"and the thing is, I'm not even afraid i'm just-\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"Well.. yeah I'm afraid - but could you please\"+NewLine()+\" get rid of them? at least 3 squirrels would be nice. \""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"If you manage to do that for me, \"+NewLine()+\"oh boy I'd pay you a good amount of money.\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"HINT: Reply in the Chat with 'okay' to accept the quest!\" + NewLine()"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"OKAY\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"okay\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"k\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"Okay\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"K\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                          },
+                          "parameters": [
+                            "npc_chat_overhead",
+                            "Text",
+                            "=",
+                            "\"I can't thank you enough! when you're done, \"+NewLine()+\"come back to me so I can reward you!\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberObjectVariable"
+                          },
+                          "parameters": [
+                            "player",
+                            "quest",
+                            "=",
                             "1"
                           ]
                         },
@@ -12221,6 +12462,34 @@
                             "Text",
                             "=",
                             "\"\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"QUEST: Kill 3 Squirrels.\" + NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "4"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"HINT: If you haven't already: to attack with more damage, click on your axe in the corner.\" + NewLine()"
                           ]
                         }
                       ]
@@ -12237,6 +12506,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Chat",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -12628,6 +12898,42 @@
                 "player",
                 ""
               ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "player",
+                "Animation",
+                "=",
+                "\"idle\""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "player",
+                "Animation",
+                "=",
+                "\"walk upward\""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "player",
+                "Animation",
+                "=",
+                "\"walk downward\""
+              ]
             }
           ],
           "actions": [
@@ -12756,7 +13062,7 @@
               "parameters": [
                 "NewSprite",
                 "=",
-                "-30"
+                "0"
               ]
             },
             {
@@ -12766,7 +13072,7 @@
               "parameters": [
                 "NewSprite",
                 "Flippable",
-                "yes"
+                "no"
               ]
             }
           ]
@@ -12853,6 +13159,42 @@
                 "NewSprite",
                 "player",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "player",
+                "Animation",
+                "=",
+                "\"walk downward\""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "player",
+                "Animation",
+                "=",
+                "\"walk upward\""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "AnimatableCapability::AnimatableBehavior::Name"
+              },
+              "parameters": [
+                "player",
+                "Animation",
+                "=",
+                "\"idle\""
               ]
             }
           ],
@@ -15164,7 +15506,7 @@
                   "parameters": [
                     "Identifier",
                     "=",
-                    "CursorX() / 2",
+                    "CursorX() + 20",
                     "=",
                     "CursorY() - 30"
                   ]
@@ -15185,7 +15527,6 @@
           "parameters": []
         },
         {
-          "disabled": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -15330,7 +15671,6 @@
           ]
         },
         {
-          "disabled": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
