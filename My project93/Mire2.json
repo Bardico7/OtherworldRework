@@ -13054,7 +13054,7 @@
                             "value": "Wait"
                           },
                           "parameters": [
-                            "1"
+                            "4"
                           ]
                         },
                         {
@@ -13077,16 +13077,6 @@
                         },
                         {
                           "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "convoprogress",
-                            "=",
-                            "8"
-                          ]
-                        },
-                        {
-                          "type": {
                             "value": "SetStringVariable"
                           },
                           "parameters": [
@@ -13103,6 +13093,16 @@
                             "Chat_Log",
                             "+",
                             "NewLine() +\"Attempting to Authenticate with credentials: \"+ email+ \" and \" + password+NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "8"
                           ]
                         }
                       ]
@@ -16881,16 +16881,7 @@
               ]
             }
           ],
-          "actions": [
-            {
-              "type": {
-                "value": "Firebase::AnonymousSignIn"
-              },
-              "parameters": [
-                "CallbackAnon"
-              ]
-            }
-          ]
+          "actions": []
         }
       ],
       "layers": [
