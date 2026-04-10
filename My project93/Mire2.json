@@ -12731,7 +12731,17 @@
                             "npc_chat_overhead",
                             "Text",
                             "=",
-                            "\"Anyways, What's your name traveler?\""
+                            "\"Anyways, Tell me about yourself traveler?\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Type /email and then your email address. (example: /email johndoe@gmail.com)\" + NewLine()"
                           ]
                         }
                       ]
@@ -12799,6 +12809,26 @@
                       },
                       "parameters": [
                         "StrFind(player.OnlinePlayer::SharedString(), \"|INV|\")",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "StrFind(player.OnlinePlayer::SharedString(), \"/email\")",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "StrFind(player.OnlinePlayer::SharedString(), \"/password\")",
                         "=",
                         "-1"
                       ]
@@ -12937,6 +12967,26 @@
                       },
                       "parameters": [
                         "StrFind(player.OnlinePlayer::SharedString(), \"|INV|\")",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "StrFind(player.OnlinePlayer::SharedString(), \"/email\")",
+                        "=",
+                        "-1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "StrFind(player.OnlinePlayer::SharedString(), \"/password\")",
                         "=",
                         "-1"
                       ]
