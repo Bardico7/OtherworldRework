@@ -84,7 +84,13 @@
       "mobile",
       "mobile"
     ],
-    "extensionProperties": [],
+    "extensionProperties": [
+      {
+        "extension": "Firebase",
+        "property": "FirebaseConfig",
+        "value": "{\n  \"apiKey\": \"AIzaSyAKWrzwTNa43JBZRIyjpXqqZOWhmptdPVc\",\n  \"authDomain\": \"minitechotherworldmmorpg.firebaseapp.com\",\n  \"databaseURL\": \"https://minitechotherworldmmorpg-default-rtdb.firebaseio.com\",\n  \"projectId\": \"minitechotherworldmmorpg\",\n  \"storageBucket\": \"minitechotherworldmmorpg.firebasestorage.app\",\n  \"messagingSenderId\": \"1014330406653\",\n  \"appId\": \"1:1014330406653:web:9b85eba55afb2c1420b094\",\n  \"measurementId\": \"G-22L1YWWLZN\"\n}"
+      }
+    ],
     "platforms": [
       {
         "name": "GDevelop JS platform"
@@ -991,6 +997,26 @@
           "name": "SquirrelsKilled",
           "type": "number",
           "value": 0
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "callback",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "CallbackAnon",
+          "type": "string",
+          "value": "0"
         }
       ],
       "instances": [
@@ -12743,6 +12769,593 @@
                             "+",
                             "NewLine() +\"Type /email and then your email address. (example: /email johndoe@gmail.com)\" + NewLine()"
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "4"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "StrFind(typemessage.Text(), \"/email\")",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "4"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "email",
+                            "=",
+                            "SubStr(typemessage.Text(), 7, 100)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "\"Confirm: is \" + email + \" your email address?\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "\"Type yes to proceed, type No to redo your email address.\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "5"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"Yes\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"yes\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"YES\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "5"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Now Type /password and then your password. (example: /password johndoe112\" + NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "6"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"Yes\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"yes\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"YES\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "7"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Firebase::BasicAccountSignIn"
+                          },
+                          "parameters": [
+                            "email",
+                            "password",
+                            "callback"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "8"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "StringVariable"
+                          },
+                          "parameters": [
+                            "callback",
+                            "=",
+                            "\"ok\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "8"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Great! You've signed in.\" + NewLine()"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "StrFind(typemessage.Text(), \"/password\")",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "6"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "password",
+                            "=",
+                            "SubStr(typemessage.Text(), 10, 100)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "\"Confirm: is \" + password + \" your password?\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "\"Type yes to proceed, type No to redo your password\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "7"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"no\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"No\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"NO\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "5"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "3"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Or"
+                          },
+                          "parameters": [],
+                          "subInstructions": [
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"no\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"No\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextContainerCapability::TextContainerBehavior::Value"
+                              },
+                              "parameters": [
+                                "typemessage",
+                                "Text",
+                                "=",
+                                "\"NO\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "7"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "6"
+                          ]
                         }
                       ]
                     },
@@ -16208,6 +16821,29 @@
                 "invitem",
                 "=",
                 "100000000"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Firebase::AnonymousSignIn"
+              },
+              "parameters": [
+                "CallbackAnon"
               ]
             }
           ]
