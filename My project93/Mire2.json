@@ -13059,7 +13059,7 @@
                         },
                         {
                           "type": {
-                            "value": "Firebase::BasicAccountSignIn"
+                            "value": "Firebase::CreateBasicAccount"
                           },
                           "parameters": [
                             "email",
@@ -13112,13 +13112,9 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "StringVariable"
+                            "value": "Firebase::IsSignedIn"
                           },
-                          "parameters": [
-                            "callback",
-                            "=",
-                            "\"ok\""
-                          ]
+                          "parameters": []
                         },
                         {
                           "type": {
