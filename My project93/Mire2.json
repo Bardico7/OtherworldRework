@@ -19,7 +19,7 @@
     "sizeOnStartupMode": "",
     "templateSlug": "",
     "version": "1.0.0",
-    "name": "Mire",
+    "name": "Otherworld",
     "description": "",
     "author": "",
     "windowWidth": 640,
@@ -877,7 +877,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7619362677198346,
+        "zoomFactor": 2.1301659159004807,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -9241,7 +9241,7 @@
             "initialValue": "",
             "placeholder": "Chat",
             "fontResourceName": "micross.ttf",
-            "fontSize": 12,
+            "fontSize": 8,
             "inputType": "text area",
             "textColor": "255;255;255",
             "fillColor": "0;0;0",
@@ -12951,6 +12951,14 @@
                       "actions": [
                         {
                           "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
                             "value": "SetStringVariable"
                           },
                           "parameters": [
@@ -13043,6 +13051,14 @@
                       "actions": [
                         {
                           "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "1"
+                          ]
+                        },
+                        {
+                          "type": {
                             "value": "Firebase::BasicAccountSignIn"
                           },
                           "parameters": [
@@ -13053,12 +13069,40 @@
                         },
                         {
                           "type": {
+                            "value": "Wait"
+                          },
+                          "parameters": [
+                            "7"
+                          ]
+                        },
+                        {
+                          "type": {
                             "value": "SetNumberVariable"
                           },
                           "parameters": [
                             "convoprogress",
                             "=",
                             "8"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"The Database replied with: \"+ callback + NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Attempting to Authenticate with credentials: \"+ email+ \" and \" + password+NewLine()"
                           ]
                         }
                       ]
