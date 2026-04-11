@@ -877,7 +877,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 1.0973679695630587,
+        "zoomFactor": 0.9296875000000913,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -1037,20 +1037,66 @@
           "name": "callanotherback",
           "type": "number",
           "value": 0
+        },
+        {
+          "name": "callback2",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "callback3",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "callback4",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "tempgold",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "tempattack",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "tempdef",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "inv",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "invdump",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "invdump2",
+          "type": "structure",
+          "children": []
         }
       ],
       "instances": [
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 36,
           "keepRatio": true,
           "layer": "",
           "name": "player",
           "persistentUuid": "ba70e6e2-751b-4b75-85d4-0348dd1fafb1",
-          "width": 0,
-          "x": 44,
-          "y": 527,
+          "width": 32,
+          "x": 46,
+          "y": 542,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -12807,6 +12853,43 @@
                       "conditions": [
                         {
                           "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "900"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Type /email and then your email address. (example: /email johndoe@gmail.com)\" + NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "4"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
                             "value": "BuiltinCommonInstructions::CompareNumbers"
                           },
                           "parameters": [
@@ -13334,7 +13417,7 @@
                           "parameters": [
                             "Chat_Log",
                             "+",
-                            "\"Confirm: is \" + password + \" your password?\""
+                            "NewLine()+\"Confirm: is \" + password + \" your password?\" + NewLine()"
                           ]
                         },
                         {
@@ -13352,7 +13435,7 @@
                           "parameters": [
                             "Chat_Log",
                             "+",
-                            "\"Type yes to proceed, type No to redo your password\""
+                            "NewLine()+\"Type yes to proceed, type No to redo your password\"+NewLine()"
                           ]
                         },
                         {
@@ -13444,7 +13527,7 @@
                           "parameters": [
                             "convoprogress",
                             "=",
-                            "3"
+                            "900"
                           ]
                         }
                       ]
@@ -15105,15 +15188,35 @@
                 "Health",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
             }
           ],
           "actions": [
             {
               "type": {
-                "value": "Delete"
+                "value": "MettreXY"
               },
               "parameters": [
                 "player",
+                "=",
+                "46",
+                "=",
+                "542"
+              ]
+            },
+            {
+              "type": {
+                "value": "Health::Health::SetHealth"
+              },
+              "parameters": [
+                "player",
+                "Health",
+                "100",
                 ""
               ]
             }
@@ -17078,36 +17181,127 @@
                 "username",
                 "callanotherback"
               ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseGetField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"playergold\"",
+                "tempgold",
+                "callanotherback"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseGetField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"inventory\"",
+                "inv",
+                "callanotherback"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseGetField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"playerdefense\"",
+                "tempdef",
+                "callanotherback"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "player",
+                "Gold",
+                "=",
+                "tempgold"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "player",
+                "Strength",
+                "=",
+                "tempattack"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberObjectVariable"
+              },
+              "parameters": [
+                "player",
+                "Defense",
+                "=",
+                "tempdef"
+              ]
+            },
+            {
+              "type": {
+                "value": "JSONToVariableStructure2"
+              },
+              "parameters": [
+                "inv",
+                "invdump2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Inventory::UnserializeFromVariable"
+              },
+              "parameters": [
+                "",
+                "\"PlayerInventory\"",
+                "invdump2"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Firebase::IsSignedIn"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
             }
           ],
-          "events": [
+          "actions": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "Firebase::IsSignedIn"
-                  },
-                  "parameters": []
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetStringVariable"
-                  },
-                  "parameters": [
-                    "Chat_Log",
-                    "+",
-                    "NewLine()+\"You are authenticated with: \" + email + \" and \"+ password+NewLine()"
-                  ]
-                }
+              "type": {
+                "value": "SetStringVariable"
+              },
+              "parameters": [
+                "Chat_Log",
+                "+",
+                "NewLine()+\"You are authenticated with: \" + email + \" and \"+ password+NewLine()"
               ]
             }
           ]
@@ -17139,6 +17333,91 @@
                 "username",
                 "=",
                 "\"Player\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "RepeatEveryXSeconds::Repeat"
+              },
+              "parameters": [
+                "",
+                "\"UpdateStats\"",
+                "3",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::IsSignedIn"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Inventory::SerializeToVariable"
+              },
+              "parameters": [
+                "",
+                "\"PlayerInventory\"",
+                "invdump"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "0.1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetStringVariable"
+              },
+              "parameters": [
+                "inv",
+                "=",
+                "ToJSON(invdump)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseUpdateField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"playergold\"",
+                "player.Gold",
+                "callback2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseUpdateField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"playerdefense\"",
+                "player.Defense",
+                "callback4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseUpdateField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"inventory\"",
+                "inv",
+                "callback3"
               ]
             }
           ]
