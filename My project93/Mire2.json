@@ -1032,6 +1032,11 @@
           "name": "callmeback",
           "type": "string",
           "value": "0"
+        },
+        {
+          "name": "callanotherback",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -17061,6 +17066,17 @@
                 "email",
                 "password",
                 "callback111"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::DatabaseGetField"
+              },
+              "parameters": [
+                "Firebase::GetUserUID()+\"/\"",
+                "\"username\"",
+                "username",
+                "callanotherback"
               ]
             }
           ],
