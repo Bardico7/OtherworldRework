@@ -877,7 +877,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 2.1301659159004807,
+        "zoomFactor": 1.0973679695630587,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -1009,12 +1009,27 @@
           "value": "0"
         },
         {
+          "name": "username",
+          "type": "string",
+          "value": "0"
+        },
+        {
           "name": "callback",
           "type": "string",
           "value": "0"
         },
         {
           "name": "CallbackAnon",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "callback111",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "callmeback",
           "type": "string",
           "value": "0"
         }
@@ -13104,6 +13119,26 @@
                             "=",
                             "8"
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "EcrireFichierExp"
+                          },
+                          "parameters": [
+                            "\"auth\"",
+                            "\"password\"",
+                            "password"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "EcrireFichierExp"
+                          },
+                          "parameters": [
+                            "\"auth\"",
+                            "\"email\"",
+                            "email"
+                          ]
                         }
                       ]
                     },
@@ -13142,6 +13177,98 @@
                             "Chat_Log",
                             "+",
                             "NewLine() +\"Great! You've signed in.\" + NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Now pick a username with /username. (ex: /username Jane Doe)\" + NewLine()"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "9"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "convoprogress",
+                            "=",
+                            "9"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "StrFind(typemessage.Text(), \"/username\")",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextInput::TextInputObject::IsInputSubmitted"
+                          },
+                          "parameters": [
+                            "typemessage"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "username",
+                            "=",
+                            "SubStr(typemessage.Text(), 10, 100)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringVariable"
+                          },
+                          "parameters": [
+                            "Chat_Log",
+                            "+",
+                            "NewLine() +\"Setting Username to: \"+ username"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Firebase::DatabaseWriteField"
+                          },
+                          "parameters": [
+                            "Firebase::GetUserUID()+\"/\"",
+                            "\"username\"",
+                            "username",
+                            "callmeback"
                           ]
                         }
                       ]
@@ -13536,7 +13663,7 @@
                       "parameters": [
                         "player",
                         "OnlinePlayer",
-                        "\"Player\" + \": \"+ typemessage.Text()",
+                        "username + \": \"+ typemessage.Text()",
                         "",
                         ""
                       ]
@@ -16875,9 +17002,130 @@
               "parameters": [
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "\"auth\"",
+                "\"email\""
+              ]
+            },
+            {
+              "type": {
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "\"auth\"",
+                "\"password\""
+              ]
             }
           ],
-          "actions": []
+          "actions": [
+            {
+              "type": {
+                "value": "ReadNumberFromStorage"
+              },
+              "parameters": [
+                "\"auth\"",
+                "\"email\"",
+                "",
+                "email"
+              ]
+            },
+            {
+              "type": {
+                "value": "ReadNumberFromStorage"
+              },
+              "parameters": [
+                "\"auth\"",
+                "\"password\"",
+                "",
+                "password"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Firebase::BasicAccountSignIn"
+              },
+              "parameters": [
+                "email",
+                "password",
+                "callback111"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Firebase::IsSignedIn"
+                  },
+                  "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetStringVariable"
+                  },
+                  "parameters": [
+                    "Chat_Log",
+                    "+",
+                    "NewLine()+\"You are authenticated with: \" + email + \" and \"+ password+NewLine()"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetStringVariable"
+              },
+              "parameters": [
+                "username",
+                "=",
+                "\"Player\""
+              ]
+            }
+          ]
         }
       ],
       "layers": [
