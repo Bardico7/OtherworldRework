@@ -16197,6 +16197,16 @@
                         "\"PlayerInventory\"",
                         "\"squirrelmeat\""
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "Inventory.squirrelmeat",
+                        "+",
+                        "1"
+                      ]
                     }
                   ]
                 }
@@ -16516,26 +16526,6 @@
                 },
                 {
                   "type": {
-                    "value": "Inventory::Add"
-                  },
-                  "parameters": [
-                    "",
-                    "\"PlayerInventory\"",
-                    "\"StarterSword\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Inventory::Add"
-                  },
-                  "parameters": [
-                    "",
-                    "\"PlayerInventory\"",
-                    "\"squirrelmeat\""
-                  ]
-                },
-                {
-                  "type": {
                     "value": "Inventory::SerializeToVariable"
                   },
                   "parameters": [
@@ -16689,7 +16679,7 @@
                         "invitem",
                         "item",
                         "=",
-                        "\"StarterSword\""
+                        "\"startersword\""
                       ]
                     }
                   ],
@@ -16891,6 +16881,16 @@
                     "\"PlayerInventory\"",
                     "\"StarterSword\""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Inventory.startersword",
+                    "+",
+                    "1"
+                  ]
                 }
               ]
             },
@@ -17014,6 +17014,45 @@
               "conditions": [
                 {
                   "type": {
+                    "value": "StringObjectVariable"
+                  },
+                  "parameters": [
+                    "invitem",
+                    "item",
+                    "=",
+                    "\"startersword\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "OnlineMultiplayer::OnlinePlayer::IsMe"
+                  },
+                  "parameters": [
+                    "player",
+                    "OnlinePlayer",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "invitem",
+                    "Animation",
+                    "=",
+                    "\"sword\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
                     "value": "SourisSurObjet"
                   },
                   "parameters": [
@@ -17031,7 +17070,7 @@
                     "invitem",
                     "item",
                     "=",
-                    "\"StarterSword\""
+                    "\"startersword\""
                   ]
                 }
               ],
@@ -17553,15 +17592,29 @@
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
+          "actions": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
           "actions": [
             {
               "type": {
                 "value": "SetNumberVariable"
               },
               "parameters": [
-                "Inventory.squirrelmeat",
-                "=",
-                "2"
+                "Inventory.startersword",
+                "+",
+                "1"
               ]
             }
           ]
@@ -17650,15 +17703,20 @@
                     "!=",
                     "\"\""
                   ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
                 }
               ],
-              "actions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "DebuggerTools::ConsoleLog"
+                  },
+                  "parameters": [
+                    "ToJSON(Inventory)",
+                    "\"info\"",
+                    ""
+                  ]
+                }
+              ],
               "events": [
                 {
                   "type": "BuiltinCommonInstructions::Repeat",
