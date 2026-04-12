@@ -11,7 +11,7 @@
     "antialiasingMode": "MSAA",
     "antialisingEnabledOnMobile": false,
     "folderProject": false,
-    "orientation": "landscape",
+    "orientation": "default",
     "packageName": "com.example.gamename",
     "pixelsRounding": true,
     "projectUuid": "52f05ce6-4d00-44f3-870f-f2dca9d76913",
@@ -77,11 +77,14 @@
       "placement": "bottom-left",
       "showWatermark": true
     },
-    "authorIds": [],
-    "authorUsernames": [],
+    "authorIds": [
+      "aNA7EweLR9NygQ9THtFgTkAFytN2"
+    ],
+    "authorUsernames": [
+      "BrikMan"
+    ],
     "categories": [],
     "playableDevices": [
-      "mobile",
       "mobile"
     ],
     "extensionProperties": [
@@ -824,6 +827,38 @@
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": false
+      },
+      {
+        "file": "squirrelmeat.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "squirrelmeat.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/squirrelmeat.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "squirrelmeat",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/invitem2.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "invitem2",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/invitem3.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "invitem3",
+        "smoothed": false,
+        "userAdded": false
       }
     ]
   },
@@ -852,6 +887,16 @@
       "name": "ItemsInColumn",
       "type": "number",
       "value": 0
+    },
+    {
+      "name": "CurrentSlotIndex",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "Inventory",
+      "type": "structure",
+      "children": []
     }
   ],
   "layouts": [
@@ -877,7 +922,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.9296875000000913,
+        "zoomFactor": 1.1343715797162066,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -1082,6 +1127,41 @@
           "name": "invdump2",
           "type": "structure",
           "children": []
+        },
+        {
+          "name": "RefreshInv",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Variable",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "invtest",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "invvvvvvtest2",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "Variable2",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "ItemCurrentName",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "child",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -8457,7 +8537,7 @@
           "layer": "UI",
           "name": "stats",
           "persistentUuid": "4f6bdaec-fbc6-4128-b7bb-a660adc2f03b",
-          "width": 466,
+          "width": 165,
           "x": 160,
           "y": 383,
           "zOrder": 8000008,
@@ -8479,6 +8559,23 @@
           "x": 472,
           "y": 229,
           "zOrder": 8000009,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 17,
+          "keepRatio": true,
+          "layer": "UI",
+          "name": "health",
+          "persistentUuid": "20243912-40ad-4586-ad74-62a03b6b8297",
+          "width": 141,
+          "x": 328,
+          "y": 383,
+          "zOrder": 8000010,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -9349,7 +9446,7 @@
             "paddingX": 2,
             "paddingY": 1,
             "textAlign": "left",
-            "maxLength": 0
+            "maxLength": "50"
           }
         },
         {
@@ -10846,6 +10943,55 @@
           "behaviors": [],
           "animations": [
             {
+              "name": "invitem",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "invitem3",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 5.5,
+                        "y": 11.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 5.5,
+                        "y": 11.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 7,
+                            "y": 4
+                          },
+                          {
+                            "x": 24,
+                            "y": 4
+                          },
+                          {
+                            "x": 24,
+                            "y": 30
+                          },
+                          {
+                            "x": 7,
+                            "y": 30
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "name": "sword",
               "useMultipleDirections": false,
               "directions": [
@@ -10855,7 +11001,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": true,
+                      "hasCustomCollisionMask": false,
                       "image": "sword",
                       "points": [],
                       "originPoint": {
@@ -10904,8 +11050,57 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": true,
+                      "hasCustomCollisionMask": false,
                       "image": "sword-1 (1).png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 5.5,
+                        "y": 11.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 5.5,
+                        "y": 11.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 7,
+                            "y": 4
+                          },
+                          {
+                            "x": 24,
+                            "y": 4
+                          },
+                          {
+                            "x": 24,
+                            "y": 30
+                          },
+                          {
+                            "x": 7,
+                            "y": 30
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "squirrelmeat",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "squirrelmeat",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -11116,6 +11311,62 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "health",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [
+            {
+              "effectType": "Outline",
+              "name": "Effect",
+              "doubleParameters": {
+                "padding": 0,
+                "thickness": 1
+              },
+              "stringParameters": {
+                "color": "0;0;0"
+              },
+              "booleanParameters": {}
+            }
+          ],
+          "behaviors": [],
+          "string": "Text",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 12,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 0,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Text",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 12,
+            "lineHeight": 0,
+            "color": "255;0;0"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -11174,6 +11425,9 @@
           },
           {
             "objectName": "stats"
+          },
+          {
+            "objectName": "health"
           },
           {
             "objectName": "typemessage"
@@ -15933,6 +16187,16 @@
                         "30",
                         "1"
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "Inventory::Add"
+                      },
+                      "parameters": [
+                        "",
+                        "\"PlayerInventory\"",
+                        "\"squirrelmeat\""
+                      ]
                     }
                   ]
                 }
@@ -16171,6 +16435,146 @@
               ]
             },
             {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "OnlineMultiplayer::OnlinePlayer::IsMe"
+                  },
+                  "parameters": [
+                    "player",
+                    "OnlinePlayer",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NextSlotY",
+                    "=",
+                    "250"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NextSlotX",
+                    "=",
+                    "SceneWindowWidth() - 150"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "SlotPadding",
+                    "=",
+                    "45"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ItemsInColumn",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "NewSprite",
+                    "Animation",
+                    "=",
+                    "\"NothingEquipped\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Inventory::Add"
+                  },
+                  "parameters": [
+                    "",
+                    "\"PlayerInventory\"",
+                    "\"StarterSword\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Inventory::Add"
+                  },
+                  "parameters": [
+                    "",
+                    "\"PlayerInventory\"",
+                    "\"squirrelmeat\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Inventory::SerializeToVariable"
+                  },
+                  "parameters": [
+                    "invtest",
+                    "\"PlayerInventory\"",
+                    "invvvvvvtest2"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "RepeatEveryXSeconds::Repeat"
+                  },
+                  "parameters": [
+                    "",
+                    "\"invcheck\"",
+                    "1",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "DebuggerTools::ConsoleLog"
+                  },
+                  "parameters": [
+                    "ToJSON(invvvvvvtest2)",
+                    "\"info\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
               "type": "BuiltinCommonInstructions::Comment",
               "color": {
                 "b": 109,
@@ -16183,7 +16587,6 @@
               "comment": "Here, we give ourselves the Sword - and send our ID to the other players to tell them we have a sword on our screen\nso therefore, give us a sword on their screen too!"
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -16220,6 +16623,55 @@
                   "conditions": [
                     {
                       "type": {
+                        "value": "StringObjectVariable"
+                      },
+                      "parameters": [
+                        "invitem",
+                        "item",
+                        "=",
+                        "\"squirrelmeat\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Health::Health::Heal"
+                      },
+                      "parameters": [
+                        "player",
+                        "Health",
+                        "5",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Inventory::Remove"
+                      },
+                      "parameters": [
+                        "",
+                        "\"PlayerInventory\"",
+                        "\"squirrelmeat\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": []
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": []
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
                         "value": "LinkedObjects::PickObjectsLinkedTo"
                       },
                       "parameters": [
@@ -16227,6 +16679,17 @@
                         "NewSprite",
                         "player",
                         ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "StringObjectVariable"
+                      },
+                      "parameters": [
+                        "invitem",
+                        "item",
+                        "=",
+                        "\"StarterSword\""
                       ]
                     }
                   ],
@@ -16312,7 +16775,6 @@
               "comment": "This loops thru each player when they recieve that message from the equipper, and finds the player associated with the tag.\nthen we check if it's not us (So we don't give the local player a sword if it isn't the ID mentioned) and it finds the User with the Online ID that matches the one. then apply the sword change to them.  You don't need any of the equipping stuff or damage management because it means nothing to the local player - so any of that - that's handled locally - just to update the display. and also so we don't equip it on ourscreen. - we'd also need to check if the player is linked to a NewSprite so we don't affect anything else but the NewSprite associated with the Player we picked. and then we change the animation."
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::ForEach",
               "object": "player",
               "conditions": [],
@@ -16395,10 +16857,11 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "DepartScene"
+                    "value": "KeyFromTextPressed"
                   },
                   "parameters": [
-                    ""
+                    "",
+                    "\"f\""
                   ]
                 },
                 {
@@ -16410,60 +16873,15 @@
                     "OnlinePlayer",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
                 }
               ],
               "actions": [
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotY",
-                    "=",
-                    "250"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotX",
-                    "=",
-                    "SceneWindowWidth() - 150"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "SlotPadding",
-                    "=",
-                    "45"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    "=",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
-                  },
-                  "parameters": [
-                    "NewSprite",
-                    "Animation",
-                    "=",
-                    "\"NothingEquipped\""
-                  ]
-                },
                 {
                   "type": {
                     "value": "Inventory::Add"
@@ -16481,13 +16899,11 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "StringObjectVariable"
+                    "value": "KeyFromTextPressed"
                   },
                   "parameters": [
-                    "invitem",
-                    "item",
-                    "=",
-                    "\"StarterSword\""
+                    "",
+                    "\"g\""
                   ]
                 },
                 {
@@ -16499,18 +16915,23 @@
                     "OnlinePlayer",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
                 }
               ],
               "actions": [
                 {
                   "type": {
-                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                    "value": "Inventory::Add"
                   },
                   "parameters": [
-                    "invitem",
-                    "Animation",
-                    "=",
-                    "\"sword\""
+                    "",
+                    "\"PlayerInventory\"",
+                    "\"squirrelmeat\""
                   ]
                 }
               ]
@@ -16546,22 +16967,22 @@
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
-                    "value": "Inventory::Has"
+                    "value": "StringObjectVariable"
                   },
                   "parameters": [
-                    "",
-                    "\"PlayerInventory\"",
-                    "\"StarterSword\""
+                    "invitem",
+                    "item",
+                    "=",
+                    "\"squirrelmeat\""
                   ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
                 },
                 {
                   "type": {
@@ -16577,114 +16998,13 @@
               "actions": [
                 {
                   "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "invitem",
-                    "NextSlotX",
-                    "NextSlotY",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangeLayer"
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
                   },
                   "parameters": [
                     "invitem",
-                    "\"UI\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetStringObjectVariable"
-                  },
-                  "parameters": [
-                    "invitem",
-                    "item",
+                    "Animation",
                     "=",
-                    "\"StarterSword\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ResizableCapability::ResizableBehavior::SetSize"
-                  },
-                  "parameters": [
-                    "invitem",
-                    "Resizable",
-                    "40",
-                    "40"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotY",
-                    "+",
-                    "SlotPadding"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    "+",
-                    "1"
-                  ]
-                }
-              ],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "NumberVariable"
-                      },
-                      "parameters": [
-                        "ItemsInColumn",
-                        ">=",
-                        "3"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "NextSlotY",
-                        "=",
-                        "300"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "NextSlotX",
-                        "-",
-                        "25"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "ItemsInColumn",
-                        "=",
-                        "0"
-                      ]
-                    }
+                    "\"squirrelmeat\""
                   ]
                 }
               ]
@@ -16702,6 +17022,17 @@
                     "",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "StringObjectVariable"
+                  },
+                  "parameters": [
+                    "invitem",
+                    "item",
+                    "=",
+                    "\"StarterSword\""
+                  ]
                 }
               ],
               "actions": [
@@ -16714,6 +17045,51 @@
                     "Text",
                     "=",
                     "\"Easy Short Sword\" + NewLine()+\"Damage: 4\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SourisSurObjet"
+                  },
+                  "parameters": [
+                    "invitem",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "StringObjectVariable"
+                  },
+                  "parameters": [
+                    "invitem",
+                    "item",
+                    "=",
+                    "\"squirrelmeat\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Identifier",
+                    "Text",
+                    "=",
+                    "\"Squirrel Meat\" + NewLine()+\"heals 5hp\"+NewLine()+ToString(player.Health::Health()) + \"->\" + ToString(player.Health::Health()+5)"
                   ]
                 }
               ]
@@ -16781,291 +17157,8 @@
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "KeyFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"f\""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            },
-            {
-              "type": {
-                "value": "OnlineMultiplayer::OnlinePlayer::IsMe"
-              },
-              "parameters": [
-                "player",
-                "OnlinePlayer",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Create"
-              },
-              "parameters": [
-                "",
-                "invitem",
-                "NextSlotX",
-                "NextSlotY",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangeLayer"
-              },
-              "parameters": [
-                "invitem",
-                "\"UI\""
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringObjectVariable"
-              },
-              "parameters": [
-                "invitem",
-                "item",
-                "=",
-                "\"StarterSword\""
-              ]
-            },
-            {
-              "type": {
-                "value": "ResizableCapability::ResizableBehavior::SetSize"
-              },
-              "parameters": [
-                "invitem",
-                "Resizable",
-                "40",
-                "40"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "NextSlotY",
-                "+",
-                "SlotPadding"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "ItemsInColumn",
-                "+",
-                "1"
-              ]
-            }
-          ],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "NumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    ">=",
-                    "3"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotY",
-                    "=",
-                    "250"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotX",
-                    "+",
-                    "25"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    "=",
-                    "0"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "KeyFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"g\""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            },
-            {
-              "type": {
-                "value": "OnlineMultiplayer::OnlinePlayer::IsMe"
-              },
-              "parameters": [
-                "player",
-                "OnlinePlayer",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Create"
-              },
-              "parameters": [
-                "",
-                "invitem",
-                "NextSlotX",
-                "NextSlotY",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "ChangeLayer"
-              },
-              "parameters": [
-                "invitem",
-                "\"UI\""
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringObjectVariable"
-              },
-              "parameters": [
-                "invitem",
-                "item",
-                "=",
-                "\"BagofMoney\""
-              ]
-            },
-            {
-              "type": {
-                "value": "ResizableCapability::ResizableBehavior::SetSize"
-              },
-              "parameters": [
-                "invitem",
-                "Resizable",
-                "40",
-                "40"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "NextSlotY",
-                "+",
-                "SlotPadding"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "ItemsInColumn",
-                "+",
-                "1"
-              ]
-            }
-          ],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "NumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    ">=",
-                    "3"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotY",
-                    "=",
-                    "250"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotX",
-                    "+",
-                    "25"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    "=",
-                    "0"
-                  ]
-                }
-              ]
-            }
-          ]
+          "conditions": [],
+          "actions": []
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -17275,6 +17368,13 @@
                 "invdump2"
               ]
             }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            }
           ]
         },
         {
@@ -17418,6 +17518,287 @@
                 "\"inventory\"",
                 "inv",
                 "callback3"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "OnlineMultiplayer::OnlinePlayer::IsMe"
+              },
+              "parameters": [
+                "player",
+                "OnlinePlayer",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "health",
+                "Text",
+                "=",
+                "\"HP:\"+ToString(player.Health::Health())"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Inventory.squirrelmeat",
+                "=",
+                "2"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "RepeatEveryXSeconds::Repeat"
+              },
+              "parameters": [
+                "",
+                "\"invchecker\"",
+                "3",
+                ""
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "invitem",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NextSlotY",
+                    "=",
+                    "300"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NextSlotX",
+                    "=",
+                    "SceneWindowWidth() - 150"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ItemsInColumn",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEachChildVariable",
+              "iterableVariableName": "Inventory",
+              "valueIteratorVariableName": "child",
+              "keyIteratorVariableName": "ItemCurrentName",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "StringVariable"
+                  },
+                  "parameters": [
+                    "Inventory",
+                    "!=",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Repeat",
+                  "repeatExpression": "child",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "invitem",
+                        "NextSlotX",
+                        "NextSlotY",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetStringObjectVariable"
+                      },
+                      "parameters": [
+                        "invitem",
+                        "item",
+                        "=",
+                        "ItemCurrentName"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeLayer"
+                      },
+                      "parameters": [
+                        "invitem",
+                        "\"UI\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "invitem",
+                        "=",
+                        "1000000000000"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResizableCapability::ResizableBehavior::SetSize"
+                      },
+                      "parameters": [
+                        "invitem",
+                        "Resizable",
+                        "40",
+                        "40"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "NextSlotY",
+                        "+",
+                        "SlotPadding"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "ItemsInColumn",
+                        "+",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "DebuggerTools::ConsoleLog"
+                      },
+                      "parameters": [
+                        "\"createdmeat\"",
+                        "\"info\"",
+                        ""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "NumberVariable"
+                          },
+                          "parameters": [
+                            "ItemsInColumn",
+                            ">=",
+                            "3"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "NextSlotY",
+                            "=",
+                            "300"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "NextSlotX",
+                            "-",
+                            "25"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "ItemsInColumn",
+                            "=",
+                            "0"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
               ]
             }
           ]
