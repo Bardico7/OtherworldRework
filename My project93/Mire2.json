@@ -85,6 +85,7 @@
     ],
     "categories": [],
     "playableDevices": [
+      "mobile",
       "mobile"
     ],
     "extensionProperties": [
@@ -8300,12 +8301,12 @@
           "customSize": false,
           "height": 0,
           "keepRatio": true,
-          "layer": "",
+          "layer": "UI",
           "name": "testpos",
           "persistentUuid": "8fe60e0a-d090-4878-8f17-d054fb3bb052",
           "width": 0,
-          "x": 314,
-          "y": 467,
+          "x": 480,
+          "y": 240,
           "zOrder": 8000004,
           "numberProperties": [],
           "stringProperties": [],
@@ -10957,14 +10958,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "customCollisionMask": [
                         [
@@ -11006,14 +11007,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "customCollisionMask": [
                         [
@@ -11055,14 +11056,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "customCollisionMask": [
                         [
@@ -11104,14 +11105,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
-                        "x": 5.5,
-                        "y": 11.5
+                        "x": 16,
+                        "y": 16
                       },
                       "customCollisionMask": [
                         [
@@ -16637,12 +16638,12 @@
                     },
                     {
                       "type": {
-                        "value": "Inventory::Remove"
+                        "value": "SetNumberVariable"
                       },
                       "parameters": [
-                        "",
-                        "\"PlayerInventory\"",
-                        "\"squirrelmeat\""
+                        "Inventory.squirrelmeat",
+                        "-",
+                        "1"
                       ]
                     }
                   ]
@@ -16874,16 +16875,6 @@
               "actions": [
                 {
                   "type": {
-                    "value": "Inventory::Add"
-                  },
-                  "parameters": [
-                    "",
-                    "\"PlayerInventory\"",
-                    "\"StarterSword\""
-                  ]
-                },
-                {
-                  "type": {
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
@@ -16926,12 +16917,12 @@
               "actions": [
                 {
                   "type": {
-                    "value": "Inventory::Add"
+                    "value": "SetNumberVariable"
                   },
                   "parameters": [
-                    "",
-                    "\"PlayerInventory\"",
-                    "\"squirrelmeat\""
+                    "Inventory.squirrelmeat",
+                    "+",
+                    "1"
                   ]
                 }
               ]
@@ -17629,7 +17620,7 @@
               "parameters": [
                 "",
                 "\"invchecker\"",
-                "3",
+                "1",
                 ""
               ]
             }
@@ -17663,7 +17654,7 @@
                   "parameters": [
                     "NextSlotY",
                     "=",
-                    "300"
+                    "250"
                   ]
                 },
                 {
@@ -17801,7 +17792,7 @@
                         "value": "DebuggerTools::ConsoleLog"
                       },
                       "parameters": [
-                        "\"createdmeat\"",
+                        "\"createdobj\"",
                         "\"info\"",
                         ""
                       ]
@@ -17818,7 +17809,7 @@
                           "parameters": [
                             "ItemsInColumn",
                             ">=",
-                            "3"
+                            "4"
                           ]
                         }
                       ],
@@ -17830,7 +17821,7 @@
                           "parameters": [
                             "NextSlotY",
                             "=",
-                            "300"
+                            "250"
                           ]
                         },
                         {
@@ -17839,8 +17830,8 @@
                           },
                           "parameters": [
                             "NextSlotX",
-                            "-",
-                            "25"
+                            "+",
+                            "32"
                           ]
                         },
                         {
