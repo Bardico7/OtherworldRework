@@ -16413,6 +16413,248 @@
               "conditions": [
                 {
                   "type": {
+                    "value": "RepeatEveryXSeconds::Repeat"
+                  },
+                  "parameters": [
+                    "",
+                    "\"invchecker\"",
+                    "0.3",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "invitem",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "NextSlotY",
+                        "=",
+                        "250"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "NextSlotX",
+                        "=",
+                        "SceneWindowWidth() - 150"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "ItemsInColumn",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::ForEachChildVariable",
+                  "iterableVariableName": "Inventory",
+                  "valueIteratorVariableName": "child",
+                  "keyIteratorVariableName": "ItemCurrentName",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "StringVariable"
+                      },
+                      "parameters": [
+                        "Inventory",
+                        "!=",
+                        "\"\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "DebuggerTools::ConsoleLog"
+                      },
+                      "parameters": [
+                        "ToJSON(Inventory)",
+                        "\"info\"",
+                        ""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Repeat",
+                      "repeatExpression": "child",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Create"
+                          },
+                          "parameters": [
+                            "",
+                            "invitem",
+                            "NextSlotX",
+                            "NextSlotY",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetStringObjectVariable"
+                          },
+                          "parameters": [
+                            "invitem",
+                            "item",
+                            "=",
+                            "ItemCurrentName"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ChangeLayer"
+                          },
+                          "parameters": [
+                            "invitem",
+                            "\"UI\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ChangePlan"
+                          },
+                          "parameters": [
+                            "invitem",
+                            "=",
+                            "1000000000000"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ResizableCapability::ResizableBehavior::SetSize"
+                          },
+                          "parameters": [
+                            "invitem",
+                            "Resizable",
+                            "40",
+                            "40"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "NextSlotY",
+                            "+",
+                            "SlotPadding"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "ItemsInColumn",
+                            "+",
+                            "1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "DebuggerTools::ConsoleLog"
+                          },
+                          "parameters": [
+                            "\"createdobj\"",
+                            "\"info\"",
+                            ""
+                          ]
+                        }
+                      ],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "NumberVariable"
+                              },
+                              "parameters": [
+                                "ItemsInColumn",
+                                ">=",
+                                "4"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "NextSlotY",
+                                "=",
+                                "250"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "NextSlotX",
+                                "+",
+                                "32"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "ItemsInColumn",
+                                "=",
+                                "0"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
                     "value": "DepartScene"
                   },
                   "parameters": [
@@ -17606,248 +17848,6 @@
                 "Inventory.startersword",
                 "+",
                 "1"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "RepeatEveryXSeconds::Repeat"
-              },
-              "parameters": [
-                "",
-                "\"invchecker\"",
-                "1",
-                ""
-              ]
-            }
-          ],
-          "actions": [],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "invitem",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotY",
-                    "=",
-                    "250"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "NextSlotX",
-                    "=",
-                    "SceneWindowWidth() - 150"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "ItemsInColumn",
-                    "=",
-                    "0"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::ForEachChildVariable",
-              "iterableVariableName": "Inventory",
-              "valueIteratorVariableName": "child",
-              "keyIteratorVariableName": "ItemCurrentName",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "StringVariable"
-                  },
-                  "parameters": [
-                    "Inventory",
-                    "!=",
-                    "\"\""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "DebuggerTools::ConsoleLog"
-                  },
-                  "parameters": [
-                    "ToJSON(Inventory)",
-                    "\"info\"",
-                    ""
-                  ]
-                }
-              ],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Repeat",
-                  "repeatExpression": "child",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "invitem",
-                        "NextSlotX",
-                        "NextSlotY",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetStringObjectVariable"
-                      },
-                      "parameters": [
-                        "invitem",
-                        "item",
-                        "=",
-                        "ItemCurrentName"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ChangeLayer"
-                      },
-                      "parameters": [
-                        "invitem",
-                        "\"UI\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ChangePlan"
-                      },
-                      "parameters": [
-                        "invitem",
-                        "=",
-                        "1000000000000"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ResizableCapability::ResizableBehavior::SetSize"
-                      },
-                      "parameters": [
-                        "invitem",
-                        "Resizable",
-                        "40",
-                        "40"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "NextSlotY",
-                        "+",
-                        "SlotPadding"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "ItemsInColumn",
-                        "+",
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "DebuggerTools::ConsoleLog"
-                      },
-                      "parameters": [
-                        "\"createdobj\"",
-                        "\"info\"",
-                        ""
-                      ]
-                    }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "NumberVariable"
-                          },
-                          "parameters": [
-                            "ItemsInColumn",
-                            ">=",
-                            "4"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "NextSlotY",
-                            "=",
-                            "250"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "NextSlotX",
-                            "+",
-                            "32"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "ItemsInColumn",
-                            "=",
-                            "0"
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
               ]
             }
           ]
