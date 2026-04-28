@@ -1026,6 +1026,11 @@
       "name": "Inventory",
       "type": "structure",
       "children": []
+    },
+    {
+      "name": "Zoom",
+      "type": "number",
+      "value": 0
     }
   ],
   "layouts": [
@@ -1051,7 +1056,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.4633111824514618,
+        "zoomFactor": 2.5143672964991044,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -11256,22 +11261,6 @@
           "height": 0,
           "keepRatio": true,
           "layer": "",
-          "name": "ref",
-          "persistentUuid": "784812ce-a8dc-49aa-ac29-7748ad07a624",
-          "width": 0,
-          "x": 2506,
-          "y": 516,
-          "zOrder": 8000015,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "keepRatio": true,
-          "layer": "",
           "name": "Light",
           "persistentUuid": "7f9d672f-40c2-4a04-bbd8-05accd1ef01a",
           "width": 0,
@@ -11851,8 +11840,8 @@
           "name": "Light",
           "persistentUuid": "90148402-887d-446e-b61d-683334e3a142",
           "width": 0,
-          "x": 2255,
-          "y": 516,
+          "x": 2254,
+          "y": 523,
           "zOrder": 8000018,
           "numberProperties": [],
           "stringProperties": [],
@@ -11868,7 +11857,7 @@
           "persistentUuid": "c16a790c-076d-40fd-ad6a-2e263c56a72b",
           "width": 0,
           "x": 2348,
-          "y": 513,
+          "y": 522,
           "zOrder": 8000018,
           "numberProperties": [],
           "stringProperties": [],
@@ -14957,13 +14946,13 @@
                       "originPoint": {
                         "name": "origine",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "customCollisionMask": [
                         [
@@ -14993,13 +14982,13 @@
                       "originPoint": {
                         "name": "origine",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "customCollisionMask": [
                         [
@@ -15029,13 +15018,13 @@
                       "originPoint": {
                         "name": "origine",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "customCollisionMask": [
                         [
@@ -15065,13 +15054,13 @@
                       "originPoint": {
                         "name": "origine",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "centerPoint": {
                         "automatic": false,
                         "name": "centre",
                         "x": 8,
-                        "y": 5.5
+                        "y": 11.5
                       },
                       "customCollisionMask": [
                         [
@@ -20764,6 +20753,16 @@
                 "=",
                 "swordinrock.Y()"
               ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Light",
+                "=",
+                "Light.Y()"
+              ]
             }
           ]
         },
@@ -22246,6 +22245,16 @@
                 "+",
                 "1"
               ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Zoom",
+                "=",
+                "1"
+              ]
             }
           ]
         },
@@ -22256,8 +22265,110 @@
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "IsMouseWheelScrollingUp"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Zoom",
+                "+",
+                "0.1"
+              ]
+            },
+            {
+              "type": {
+                "value": "CentreCamera"
+              },
+              "parameters": [
+                "",
+                "player",
+                "",
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "IsMouseWheelScrollingDown"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Zoom",
+                "-",
+                "0.1"
+              ]
+            },
+            {
+              "type": {
+                "value": "CentreCamera"
+              },
+              "parameters": [
+                "",
+                "player",
+                "",
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
-          "actions": []
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "Zoom",
+                "",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Zoom",
+                "=",
+                "clamp(Zoom,1,2)"
+              ]
+            }
+          ]
         }
       ],
       "layers": [
