@@ -1031,6 +1031,11 @@
       "name": "Zoom",
       "type": "number",
       "value": 0
+    },
+    {
+      "name": "TYPEOFDAY",
+      "type": "number",
+      "value": 0
     }
   ],
   "layouts": [
@@ -1056,7 +1061,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 2.5143672964991044,
+        "zoomFactor": 1.9284316855176298,
         "windowMask": false,
         "selectedLayer": ""
       },
@@ -1299,6 +1304,11 @@
         },
         {
           "name": "child",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "TIMEOFDAY",
           "type": "number",
           "value": 0
         }
@@ -22253,6 +22263,16 @@
               "parameters": [
                 "Zoom",
                 "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
                 "1"
               ]
             }
@@ -22365,7 +22385,180 @@
               "parameters": [
                 "Zoom",
                 "=",
-                "clamp(Zoom,1,2)"
+                "clamp(Zoom,1.5,3)"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
+                "clamp(TYPEOFDAY,1,4)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "RepeatEveryXSeconds::Repeat"
+              },
+              "parameters": [
+                "",
+                "\"day\"",
+                "30",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "+",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                ">",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetLayerAmbientLightColor"
+              },
+              "parameters": [
+                "",
+                "\"Lighting\"",
+                "\"190;116;197\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetLayerAmbientLightColor"
+              },
+              "parameters": [
+                "",
+                "\"Lighting\"",
+                "\"217;233;247\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetLayerAmbientLightColor"
+              },
+              "parameters": [
+                "",
+                "\"Lighting\"",
+                "\"218;196;163\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TYPEOFDAY",
+                "=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetLayerAmbientLightColor"
+              },
+              "parameters": [
+                "",
+                "\"Lighting\"",
+                "\"99;83;145\""
               ]
             }
           ]
@@ -22492,9 +22685,9 @@
           ]
         },
         {
-          "ambientLightColorB": 255,
-          "ambientLightColorG": 152,
-          "ambientLightColorR": 192,
+          "ambientLightColorB": 92,
+          "ambientLightColorG": 165,
+          "ambientLightColorR": 108,
           "camera2DPlaneMaxDrawingDistance": 5000,
           "camera3DFarPlaneDistance": 10000,
           "camera3DFieldOfView": 45,
