@@ -19,7 +19,7 @@
     "sizeOnStartupMode": "",
     "templateSlug": "",
     "version": "1.0.0",
-    "name": "Otherworld: Chains of the Chanterran",
+    "name": "Otherworld: Chains of the Chanterran - Copy",
     "description": "",
     "author": "",
     "windowWidth": 1280,
@@ -1100,7 +1100,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 1.2952916551237965,
+        "zoomFactor": 0.7130377630691531,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
